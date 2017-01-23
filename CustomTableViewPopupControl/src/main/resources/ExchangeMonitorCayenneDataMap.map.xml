@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data-map xmlns="http://cayenne.apache.org/schema/9/modelMap" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://cayenne.apache.org/schema/9/modelMap http://cayenne.apache.org/schema/9/modelMap.xsd" project-version="9">
+	<property name="defaultPackage" value="com.tc.app.exchangemonitor.model.cayenne.persistent"/>
+	<!--
+	<property name="defaultSchema" value="dbo"/>
+	<property name="defaultCatalog" value="QA_30_trade_nov22"/>
+	-->
+	
+	<db-entity name="account">
+		<db-attribute name="acct_fiscal_code" type="VARCHAR" length="16"/>
+		<db-attribute name="acct_full_name" type="VARCHAR" isMandatory="true" length="255"/>
+		<db-attribute name="acct_num" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="10"/>
+		<db-attribute name="acct_parent_ind" type="CHAR" isMandatory="true" length="1"/>
+		<db-attribute name="acct_short_name" type="VARCHAR" isMandatory="true" length="15"/>
+		<db-attribute name="acct_status" type="CHAR" isMandatory="true" length="1"/>
+		<db-attribute name="acct_sub_ind" type="CHAR" isMandatory="true" length="1"/>
+		<db-attribute name="acct_sub_type_code" type="CHAR" length="8"/>
+		<db-attribute name="acct_type_code" type="CHAR" isMandatory="true" length="8"/>
+		<db-attribute name="acct_vat_code" type="VARCHAR" length="11"/>
+		<db-attribute name="allows_bookout" type="BIT" isMandatory="true" length="1"/>
+		<db-attribute name="allows_netout" type="BIT" isMandatory="true" length="1"/>
+		<db-attribute name="contract_cmnt_num" type="INTEGER" length="10"/>
+		<db-attribute name="govt_code" type="VARCHAR" length="50"/>
+		<db-attribute name="legal_entity_num" type="INTEGER" length="10"/>
+		<db-attribute name="man_input_sec_qty_required" type="CHAR" length="1"/>
+		<db-attribute name="master_agreement_date" type="TIMESTAMP" length="23"/>
+		<db-attribute name="risk_transfer_ind_code" type="CHAR" length="2"/>
+		<db-attribute name="trans_id" type="INTEGER" isMandatory="true" length="10"/>
+	</db-entity>
+	<db-entity name="commodity">
+		<db-attribute name="cmdty_category_code" type="CHAR" length="8"/>
+		<db-attribute name="cmdty_code" type="CHAR" isPrimaryKey="true" isMandatory="true" length="8"/>
+		<db-attribute name="cmdty_full_name" type="VARCHAR" isMandatory="true" length="40"/>
+		<db-attribute name="cmdty_loc_desc" type="VARCHAR" length="40"/>
+		<db-attribute name="cmdty_short_name" type="VARCHAR" isMandatory="true" length="15"/>
+		<db-attribute name="cmdty_status" type="CHAR" isMandatory="true" length="1"/>
+		<db-attribute name="cmdty_tradeable_ind" type="CHAR" isMandatory="true" length="1"/>
+		<db-attribute name="cmdty_type" type="CHAR" isMandatory="true" length="1"/>
+		<db-attribute name="country_code" type="CHAR" length="8"/>
+		<db-attribute name="grade" type="CHAR" length="2"/>
+		<db-attribute name="is_composite" type="CHAR" length="1"/>
+		<db-attribute name="movements_require_specific_actuals" type="CHAR" length="1"/>
+		<db-attribute name="prim_curr_code" type="CHAR" length="8"/>
+		<db-attribute name="prim_curr_conv_rate" type="DOUBLE" length="53"/>
+		<db-attribute name="prim_uom_code" type="CHAR" length="4"/>
+		<db-attribute name="sec_uom_code" type="CHAR" length="4"/>
+		<db-attribute name="trans_id" type="INTEGER" isMandatory="true" length="10"/>
+	</db-entity>
+	<db-entity name="icts_user">
+		<db-attribute name="desk_code" type="CHAR" isMandatory="true" length="8"/>
+		<db-attribute name="email_address" type="VARCHAR" length="60"/>
+		<db-attribute name="loc_code" type="CHAR" isMandatory="true" length="8"/>
+		<db-attribute name="trans_id" type="INTEGER" isMandatory="true" length="10"/>
+		<db-attribute name="us_citizen_ind" type="CHAR" isMandatory="true" length="1"/>
+		<db-attribute name="user_employee_num" type="INTEGER" length="10"/>
+		<db-attribute name="user_first_name" type="VARCHAR" isMandatory="true" length="20"/>
+		<db-attribute name="user_init" type="CHAR" isPrimaryKey="true" isMandatory="true" length="3"/>
+		<db-attribute name="user_job_title" type="CHAR" isMandatory="true" length="40"/>
+		<db-attribute name="user_last_name" type="VARCHAR" isMandatory="true" length="20"/>
+		<db-attribute name="user_logon_id" type="VARCHAR" isMandatory="true" length="20"/>
+		<db-attribute name="user_status" type="CHAR" isMandatory="true" length="1"/>
+	</db-entity>
+	<db-entity name="uom">
+		<db-attribute name="adj1_mult_div_ind" type="CHAR" length="1"/>
+		<db-attribute name="adj2_mult_div_ind" type="CHAR" length="1"/>
+		<db-attribute name="conv_factor" type="NUMERIC" length="20" scale="8"/>
+		<db-attribute name="spec_code_adj1" type="CHAR" length="8"/>
+		<db-attribute name="spec_code_adj2" type="CHAR" length="8"/>
+		<db-attribute name="trans_id" type="INTEGER" isMandatory="true" length="10"/>
+		<db-attribute name="uom_code" type="CHAR" isPrimaryKey="true" isMandatory="true" length="4"/>
+		<db-attribute name="uom_convert_to" type="CHAR" length="4"/>
+		<db-attribute name="uom_full_name" type="VARCHAR" isMandatory="true" length="40"/>
+		<db-attribute name="uom_num" type="SMALLINT" length="5"/>
+		<db-attribute name="uom_short_name" type="VARCHAR" isMandatory="true" length="15"/>
+		<db-attribute name="uom_status" type="CHAR" isMandatory="true" length="1"/>
+		<db-attribute name="uom_type" type="CHAR" isMandatory="true" length="1"/>
+	</db-entity>
+	<obj-entity name="Account" className="com.tc.app.exchangemonitor.model.cayenne.persistent.Account" dbEntityName="account">
+		<obj-attribute name="acctFiscalCode" type="java.lang.String" db-attribute-path="acct_fiscal_code"/>
+		<obj-attribute name="acctFullName" type="java.lang.String" db-attribute-path="acct_full_name"/>
+		<obj-attribute name="acctParentInd" type="java.lang.String" db-attribute-path="acct_parent_ind"/>
+		<obj-attribute name="acctShortName" type="java.lang.String" db-attribute-path="acct_short_name"/>
+		<obj-attribute name="acctStatus" type="java.lang.String" db-attribute-path="acct_status"/>
+		<obj-attribute name="acctSubInd" type="java.lang.String" db-attribute-path="acct_sub_ind"/>
+		<obj-attribute name="acctSubTypeCode" type="java.lang.String" db-attribute-path="acct_sub_type_code"/>
+		<obj-attribute name="acctVatCode" type="java.lang.String" db-attribute-path="acct_vat_code"/>
+		<obj-attribute name="allowsBookout" type="java.lang.Boolean" db-attribute-path="allows_bookout"/>
+		<obj-attribute name="allowsNetout" type="java.lang.Boolean" db-attribute-path="allows_netout"/>
+		<obj-attribute name="govtCode" type="java.lang.String" db-attribute-path="govt_code"/>
+		<obj-attribute name="legalEntityNum" type="java.lang.Integer" db-attribute-path="legal_entity_num"/>
+		<obj-attribute name="manInputSecQtyRequired" type="java.lang.String" db-attribute-path="man_input_sec_qty_required"/>
+		<obj-attribute name="masterAgreementDate" type="java.util.Date" db-attribute-path="master_agreement_date"/>
+		<obj-attribute name="transId" type="java.lang.Integer" db-attribute-path="trans_id"/>
+	</obj-entity>
+	<obj-entity name="Commodity" className="com.tc.app.exchangemonitor.model.cayenne.persistent.Commodity" dbEntityName="commodity">
+		<obj-attribute name="cmdtyFullName" type="java.lang.String" db-attribute-path="cmdty_full_name"/>
+		<obj-attribute name="cmdtyLocDesc" type="java.lang.String" db-attribute-path="cmdty_loc_desc"/>
+		<obj-attribute name="cmdtyShortName" type="java.lang.String" db-attribute-path="cmdty_short_name"/>
+		<obj-attribute name="cmdtyStatus" type="java.lang.String" db-attribute-path="cmdty_status"/>
+		<obj-attribute name="cmdtyTradeableInd" type="java.lang.String" db-attribute-path="cmdty_tradeable_ind"/>
+		<obj-attribute name="grade" type="java.lang.String" db-attribute-path="grade"/>
+		<obj-attribute name="isComposite" type="java.lang.String" db-attribute-path="is_composite"/>
+		<obj-attribute name="movementsRequireSpecificActuals" type="java.lang.String" db-attribute-path="movements_require_specific_actuals"/>
+		<obj-attribute name="primCurrConvRate" type="java.lang.Double" db-attribute-path="prim_curr_conv_rate"/>
+		<obj-attribute name="transId" type="java.lang.Integer" db-attribute-path="trans_id"/>
+	</obj-entity>
+	<obj-entity name="IctsUser" className="com.tc.app.exchangemonitor.model.cayenne.persistent.IctsUser" dbEntityName="icts_user">
+		<obj-attribute name="emailAddress" type="java.lang.String" db-attribute-path="email_address"/>
+		<obj-attribute name="transId" type="java.lang.Integer" db-attribute-path="trans_id"/>
+		<obj-attribute name="usCitizenInd" type="java.lang.String" db-attribute-path="us_citizen_ind"/>
+		<obj-attribute name="userEmployeeNum" type="java.lang.Integer" db-attribute-path="user_employee_num"/>
+		<obj-attribute name="userFirstName" type="java.lang.String" db-attribute-path="user_first_name"/>
+		<obj-attribute name="userLastName" type="java.lang.String" db-attribute-path="user_last_name"/>
+		<obj-attribute name="userLogonId" type="java.lang.String" db-attribute-path="user_logon_id"/>
+		<obj-attribute name="userStatus" type="java.lang.String" db-attribute-path="user_status"/>
+	</obj-entity>
+	<obj-entity name="Uom" className="com.tc.app.exchangemonitor.model.cayenne.persistent.Uom" dbEntityName="uom">
+		<obj-attribute name="adj1MultDivInd" type="java.lang.String" db-attribute-path="adj1_mult_div_ind"/>
+		<obj-attribute name="adj2MultDivInd" type="java.lang.String" db-attribute-path="adj2_mult_div_ind"/>
+		<obj-attribute name="convFactor" type="java.math.BigDecimal" db-attribute-path="conv_factor"/>
+		<obj-attribute name="transId" type="java.lang.Integer" db-attribute-path="trans_id"/>
+		<obj-attribute name="uomFullName" type="java.lang.String" db-attribute-path="uom_full_name"/>
+		<obj-attribute name="uomNum" type="java.lang.Short" db-attribute-path="uom_num"/>
+		<obj-attribute name="uomShortName" type="java.lang.String" db-attribute-path="uom_short_name"/>
+		<obj-attribute name="uomStatus" type="java.lang.String" db-attribute-path="uom_status"/>
+		<obj-attribute name="uomType" type="java.lang.String" db-attribute-path="uom_type"/>
+	</obj-entity>
+</data-map>

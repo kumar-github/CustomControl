@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<TableView fixedCellSize="26.0" fx:id="accountReferenceDataTableView" focusTraversable="true" tableMenuButtonVisible="true" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AccountReferenceDataTableViewController">
+<columns>
+	<TableColumn fx:id="accountNumTableColumn" minWidth="100.0" prefWidth="100.0" text="Acct. Num">
+	<cellValueFactory><PropertyValueFactory property="acctNum" /></cellValueFactory>
+	</TableColumn>
+	<TableColumn fx:id="accountShortNameTableColumn" minWidth="150.0" prefWidth="150.0" text="Account Short Name">
+	<cellValueFactory><PropertyValueFactory property="acctShortName" /></cellValueFactory>
+	</TableColumn>
+	<TableColumn fx:id="accountFullNameTableColumn" minWidth="150.0" prefWidth="150.0" text="Account Full Name">
+	<cellValueFactory><PropertyValueFactory property="acctFullName" /></cellValueFactory>
+	</TableColumn>
+	<TableColumn fx:id="accountTypeCodeTableColumn" minWidth="150.0" prefWidth="150.0" text="Account Type Code">
+	<cellValueFactory><PropertyValueFactory property="acctTypeCode" /></cellValueFactory>
+	</TableColumn>
+</columns>
+<columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY" /></columnResizePolicy>
+</TableView>
