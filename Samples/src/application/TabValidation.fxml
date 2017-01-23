@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.web.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="application.Controller">
+  <center>
+    <TabPane fx:id="tabPane">
+      <tabs>
+        <Tab fx:id="nameTab" text="Name">
+          <content>
+            <BorderPane>
+              <bottom>
+                <Label fx:id="nameTabErrorInstructions" styleClass="error-instructions" text="Items in red need attention" BorderPane.alignment="CENTER">
+                  <BorderPane.margin>
+                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" fx:id="x1" />
+                  </BorderPane.margin>
+                </Label>
+              </bottom>
+              <center>
+                <GridPane hgap="10.0" vgap="10.0">
+                  <children>
+                    <Label text="First Name:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                    <TextField fx:id="firstNameTextField" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                      <tooltip>
+                        <Tooltip text="First name" />
+                      </tooltip>
+                    </TextField>
+                    <Label text="Last Name:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                    <TextField fx:id="lastNameTextField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  </children>
+                  <columnConstraints>
+                    <ColumnConstraints halignment="RIGHT" hgrow="NEVER" />
+                    <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" />
+                  </columnConstraints>
+                  <padding>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                  </padding>
+                  <BorderPane.margin>
+                    <Insets />
+                  </BorderPane.margin>
+                </GridPane>
+              </center>
+              <top>
+                <TitledPane fx:id="nameTabErrorList" animated="false" expanded="false">
+                  <content>
+                    <VBox fx:id="nameTabErrorMessages" spacing="5.0" />
+                  </content>
+                </TitledPane>
+              </top>
+            </BorderPane>
+          </content>
+        </Tab>
+        <Tab fx:id="contactTab" text="Contact">
+          <content>
+            <BorderPane>
+              <bottom>
+                <Label id="nameTabErrorInstructions" fx:id="contactTabErrorInstructions" alignment="CENTER" styleClass="error-instructions" text="Items in red need attention" BorderPane.alignment="CENTER" BorderPane.margin="$x1" />
+              </bottom>
+              <center>
+                <GridPane hgap="10.0" vgap="10.0">
+                  <children>
+                    <Label text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                    <TextField fx:id="emailTextField" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                      <tooltip>
+                        <Tooltip text="Email address" />
+                      </tooltip>
+                    </TextField>
+                    <Label text="Zip code:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                    <TextField fx:id="zipCodeTextField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  </children>
+                  <columnConstraints>
+                    <ColumnConstraints halignment="RIGHT" hgrow="NEVER" />
+                    <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" />
+                  </columnConstraints>
+                  <padding>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                  </padding>
+                  <BorderPane.margin>
+                    <Insets />
+                  </BorderPane.margin>
+                </GridPane>
+              </center>
+              <top>
+                <TitledPane fx:id="contactTabErrorList" animated="false" expanded="false">
+                  <content>
+                    <VBox fx:id="contactTabErrorMessages" spacing="5.0" />
+                  </content>
+                </TitledPane>
+              </top>
+            </BorderPane>
+          </content>
+        </Tab>
+        <Tab fx:id="confirmationTab" text="Confirmation">
+          <content>
+            <BorderPane>
+              <center>
+                <WebView fx:id="browser" />
+              </center>
+              <top>
+                <Label text="Thanks. You may now see the discussion." BorderPane.alignment="CENTER" />
+              </top>
+            </BorderPane>
+          </content>
+        </Tab>
+      </tabs>
+    </TabPane>
+  </center>
+</BorderPane>
